@@ -2,69 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>System Locked</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Locked - KING SIRPAI</title>
   <style>
-    html, body {
+    body {
       margin: 0;
       padding: 0;
+      font-family: Arial, sans-serif;
       background: black;
       color: red;
-      font-family: monospace;
-      height: 100vh;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    .lock-container {
       text-align: center;
     }
-    #unlock {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-    }
-    input {
+    input[type="password"] {
       padding: 10px;
       font-size: 16px;
+      margin-top: 20px;
     }
     button {
-      margin-top: 10px;
-      padding: 10px;
+      padding: 10px 20px;
       font-size: 16px;
+      margin-left: 10px;
       background: red;
-      color: white;
       border: none;
+      color: white;
       cursor: pointer;
+    }
+    #unlocked {
+      display: none;
+      color: lime;
+      font-size: 24px;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <h1>💀 YOUR SYSTEM HAS BEEN LOCKED 💀</h1>
-  <p>All files are safe for now.<br>To regain access, enter the password below.</p>
-
-  <div id="unlock">
-    <input type="password" id="password" placeholder="Enter password to unlock" />
+  <div class="lock-container">
+    <h1>🔒 YOUR DEVICE IS LOCKED 🔒</h1>
+    <p>This lockscreen was activated by KING SIRPAI.</p>
+    <input type="password" id="password" placeholder="Enter unlock code" />
     <button onclick="unlock()">UNLOCK</button>
+    <div id="unlocked">✅ UNLOCKED - Welcome back!</div>
   </div>
 
   <script>
-    const correctPassword = "KING SIRPAI";
-
     function unlock() {
-      const input = document.getElementById("password").value;
-      if (input === correctPassword) {
-        document.body.innerHTML = "<h1 style='color:green'>✅ Access Restored</h1><p>You have unlocked the screen successfully.</p>";
+      const input = document.getElementById('password').value;
+      if (input === "KING SIRPAI") {
+        document.body.innerHTML = "<h1 style='color:lime; text-align:center; margin-top:20%;'>✅ UNLOCKED - Welcome back!</h1>";
       } else {
-        alert("❌ Incorrect password. Try again.");
+        alert("❌ WRONG PASSWORD");
       }
     }
-
-    // Optional: Blok klik kanan & F12
-    document.addEventListener("contextmenu", e => e.preventDefault());
-    document.onkeydown = function (e) {
-      if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
-        e.preventDefault();
-      }
-    };
   </script>
 </body>
 </html>
