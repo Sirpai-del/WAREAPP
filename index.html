@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>System Locked</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      color: red;
+      font-family: monospace;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    #unlock {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 16px;
+      background: red;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>💀 YOUR SYSTEM HAS BEEN LOCKED 💀</h1>
+  <p>All files are safe for now.<br>To regain access, enter the password below.</p>
+
+  <div id="unlock">
+    <input type="password" id="password" placeholder="Enter password to unlock" />
+    <button onclick="unlock()">UNLOCK</button>
+  </div>
+
+  <script>
+    const correctPassword = "KING SIRPAI";
+
+    function unlock() {
+      const input = document.getElementById("password").value;
+      if (input === correctPassword) {
+        document.body.innerHTML = "<h1 style='color:green'>✅ Access Restored</h1><p>You have unlocked the screen successfully.</p>";
+      } else {
+        alert("❌ Incorrect password. Try again.");
+      }
+    }
+
+    // Optional: Blok klik kanan & F12
+    document.addEventListener("contextmenu", e => e.preventDefault());
+    document.onkeydown = function (e) {
+      if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
+        e.preventDefault();
+      }
+    };
+  </script>
+</body>
+</html>
